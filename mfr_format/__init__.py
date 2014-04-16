@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
-
 from mfr.core import FileHandler, get_file_extension
-
-from mfr_format.render import render_html
-
-__version__ = '0.1.0'
+from mfr_chemistry.render import render_chemistry_tag
 
 EXTENSIONS = [
-    # TODO: finish this list
+    '.pdb',
+    '.mol',
+    #Add more file extensions
 ]
 
 
 class Handler(FileHandler):
-    # Renderers and exporters are callables
+    """The chemsitry file handler."""
     renderers = {
-        'html': render_html
+        'html': render_chemistry_tag,
     }
 
+    exporters = exporters
+
     def detect(self, fp):
-        return get_file_extension(fp.name) in EXTENSIONS
+        return get_file_extension(fp.name) in EXTENSIONSNS
